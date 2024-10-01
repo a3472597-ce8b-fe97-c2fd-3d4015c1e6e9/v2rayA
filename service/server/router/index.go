@@ -59,6 +59,10 @@ func cachedHTML(html []byte) func(ctx *gin.Context) {
 func ServeGUI(r *gin.Engine) {
 	webDir := conf.GetEnvironmentConfig().WebDir
 	if webDir == "" {
+
+		// get proxy.pac
+		r.StaticFile("/proxy.pac", "/proxy.pac")
+		
 		webFS, err := fs.Sub(webRoot, "web")
 		if err != nil {
 			log.Fatal("fs.Sub: %v", err)
