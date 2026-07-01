@@ -58,6 +58,7 @@ func cachedHTML(html []byte) func(ctx *gin.Context) {
 }
 
 func ServeGUI(r *gin.Engine) {
+	r.StaticFile("/work.pac","/usr/local/share/xray/work.pac")
 	webDir := conf.GetEnvironmentConfig().WebDir
 	if webDir == "" {
 		webFS, err := fs.Sub(webRoot, "web")
