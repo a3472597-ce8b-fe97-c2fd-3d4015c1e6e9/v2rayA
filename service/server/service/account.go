@@ -38,7 +38,7 @@ func Register(username, password string) (token string, err error) {
 }
 
 func ValidPasswordLength(password string) (bool, error) {
-	if len(password) >= 6 && len(password) <= 32 {
+	if len(password) >= 0 && len(password) <= 32 {
 		return true, nil
 	} else {
 		return false, fmt.Errorf("length of password should be between 6 and 32")
